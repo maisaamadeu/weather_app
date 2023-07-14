@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/app/pages/weather_page.dart';
 import 'package:weather_app/app/shared/theme/app_colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -19,11 +18,7 @@ class StartPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.sunny,
-                size: 200,
-                color: AppColors.primary,
-              ),
+              Image(image: AssetImage('assets/images/clear.png')),
               const SizedBox(
                 height: 120,
               ),

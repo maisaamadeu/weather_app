@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/app/shared/theme/app_colors.dart';
 import 'package:glass_kit/glass_kit.dart';
@@ -26,8 +26,8 @@ class WeatherPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.location_on_rounded,
+            icon: const Icon(
+              Icons.edit_location_alt_rounded,
               color: Colors.white,
             ),
           ),
@@ -35,47 +35,93 @@ class WeatherPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Container(
-                  height: 250.0,
-                  width: double.infinity,
-                  color: Colors.black.withOpacity(0.1),
-                  child: Stack(
-                    children: [
-                      BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-                        child: Container(),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          // border:
-                          //     Border.all(color: Colors.white.withOpacity(0.20)),
-
-                          gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Colors.white.withOpacity(0.15),
-                                Colors.white.withOpacity(0.05),
-                              ]),
+              GlassContainer.clearGlass(
+                height: 250,
+                width: MediaQuery.sizeOf(context).width,
+                borderRadius: BorderRadius.circular(20),
+                elevation: 20,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.white.withOpacity(0.15),
+                    Colors.white.withOpacity(0.05),
+                  ],
+                ),
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Hoje',
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                      const Center(
-                        child: Text(
-                          "Glass Container",
-                          style: TextStyle(
-                              color: Color(0xffe7e7e7),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 22.0),
+                        Text(
+                          '14/04/2023',
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontSize: 14,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            text: '30',
+                            style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontSize: 60,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: ' °C',
+                                style: GoogleFonts.inter(
+                                  color: AppColors.primary,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.location_on_rounded,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Boituva, SP - Brasil',
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontSize: 14,
+                            // fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
