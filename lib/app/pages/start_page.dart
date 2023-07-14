@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:weather_app/app/pages/weather_page.dart';
 import 'package:weather_app/app/shared/theme/app_colors.dart';
+import 'package:permission_handler/permission_handler.dart' as ph;
+import 'package:geolocator/geolocator.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -18,7 +21,10 @@ class StartPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image(image: AssetImage('assets/images/clear.png')),
+              Image.asset(
+                'assets/images/clear.png',
+                scale: 1,
+              ),
               const SizedBox(
                 height: 120,
               ),
@@ -53,13 +59,45 @@ class StartPage extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => WeatherPage(),
-                      ),
-                    );
+                  onPressed: () async {
+                    ph.PermissionStatus permission =
+                        await ph.Permission.location.request();
+                    if (permission.isGranted) {
+                      bool gpsIsEnabled =
+                          await Geolocator.isLocationServiceEnabled();
+                      print(gpsIsEnabled);
+
+                      if (!gpsIsEnabled) {
+                        Alert(
+                                context: context,
+                                title: 'GPS Desligado',
+                                desc:
+                                    'Seu GPS está desligado, para obter a localicação ative-o.')
+                            .show();
+                      } else {
+                        Position position =
+                            await Geolocator.getCurrentPosition();
+                        print(position);
+                        Alert(
+                                context: context,
+                                title: 'GPS Ligado :)',
+                                desc: '${position}')
+                            .show();
+                      }
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const WeatherPage(),
+                      //   ),
+                      // );
+                    } else if (permission.isDenied) {
+                      Alert(
+                              context: context,
+                              title: "Permissão Negada",
+                              desc:
+                                  "Parece que você não permitiu o uso do GPS, abra as configurações do aplicativo e libere a permissão")
+                          .show();
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:

@@ -1,9 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/app/shared/theme/app_colors.dart';
-import 'package:glass_kit/glass_kit.dart';
+import 'package:weather_app/app/shared/widgets/weather_card_widget.dart';
 
 class WeatherPage extends StatelessWidget {
   const WeatherPage({super.key});
@@ -33,97 +32,12 @@ class WeatherPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
-              GlassContainer.clearGlass(
-                height: 250,
-                width: MediaQuery.sizeOf(context).width,
-                borderRadius: BorderRadius.circular(20),
-                elevation: 20,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Colors.white.withOpacity(0.15),
-                    Colors.white.withOpacity(0.05),
-                  ],
-                ),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Hoje',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          '14/04/2023',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 14,
-                            // fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            text: '30',
-                            style: GoogleFonts.inter(
-                              color: Colors.white,
-                              fontSize: 60,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: ' °C',
-                                style: GoogleFonts.inter(
-                                  color: AppColors.primary,
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.location_on_rounded,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Boituva, SP - Brasil',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 14,
-                            // fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              WeatherCardWidget(),
             ],
           ),
         ),
