@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:weather_app/app/pages/weather_page.dart';
 import 'package:weather_app/app/shared/theme/app_colors.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 import 'package:geolocator/geolocator.dart';
@@ -81,7 +80,7 @@ class StartPage extends StatelessWidget {
                         Alert(
                                 context: context,
                                 title: 'GPS Ligado :)',
-                                desc: '${position}')
+                                desc: '$position')
                             .show();
                       }
                       // Navigator.pushReplacement(

@@ -46,21 +46,21 @@ class WeatherModel {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['coord'] = coord.toJson();
-    _data['weather'] = weather.map((e) => e.toJson()).toList();
-    _data['base'] = base;
-    _data['main'] = main.toJson();
-    _data['visibility'] = visibility;
-    _data['wind'] = wind.toJson();
-    _data['clouds'] = clouds.toJson();
-    _data['dt'] = dt;
-    _data['sys'] = sys.toJson();
-    _data['timezone'] = timezone;
-    _data['id'] = id;
-    _data['name'] = name;
-    _data['cod'] = cod;
-    return _data;
+    final data = <String, dynamic>{};
+    data['coord'] = coord.toJson();
+    data['weather'] = weather.map((e) => e.toJson()).toList();
+    data['base'] = base;
+    data['main'] = main.toJson();
+    data['visibility'] = visibility;
+    data['wind'] = wind.toJson();
+    data['clouds'] = clouds.toJson();
+    data['dt'] = dt;
+    data['sys'] = sys.toJson();
+    data['timezone'] = timezone;
+    data['id'] = id;
+    data['name'] = name;
+    data['cod'] = cod;
+    return data;
   }
 }
 
@@ -78,10 +78,10 @@ class Coord {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['lon'] = lon;
-    _data['lat'] = lat;
-    return _data;
+    final data = <String, dynamic>{};
+    data['lon'] = lon;
+    data['lat'] = lat;
+    return data;
   }
 }
 
@@ -105,12 +105,12 @@ class Weather {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['main'] = main;
-    _data['description'] = description;
-    _data['icon'] = icon;
-    return _data;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['main'] = main;
+    data['description'] = description;
+    data['icon'] = icon;
+    return data;
   }
 }
 
@@ -146,16 +146,16 @@ class Main {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['temp'] = temp;
-    _data['feels_like'] = feelsLike;
-    _data['temp_min'] = tempMin;
-    _data['temp_max'] = tempMax;
-    _data['pressure'] = pressure;
-    _data['humidity'] = humidity;
-    _data['sea_level'] = seaLevel;
-    _data['grnd_level'] = grndLevel;
-    return _data;
+    final data = <String, dynamic>{};
+    data['temp'] = temp;
+    data['feels_like'] = feelsLike;
+    data['temp_min'] = tempMin;
+    data['temp_max'] = tempMax;
+    data['pressure'] = pressure;
+    data['humidity'] = humidity;
+    data['sea_level'] = seaLevel;
+    data['grnd_level'] = grndLevel;
+    return data;
   }
 }
 
@@ -176,11 +176,11 @@ class Wind {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['speed'] = speed;
-    _data['deg'] = deg;
-    _data['gust'] = gust;
-    return _data;
+    final data = <String, dynamic>{};
+    data['speed'] = speed;
+    data['deg'] = deg;
+    data['gust'] = gust;
+    return data;
   }
 }
 
@@ -195,9 +195,9 @@ class Clouds {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['all'] = all;
-    return _data;
+    final data = <String, dynamic>{};
+    data['all'] = all;
+    return data;
   }
 }
 
@@ -218,10 +218,10 @@ class Sys {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['country'] = country;
-    _data['sunrise'] = sunrise;
-    _data['sunset'] = sunset;
-    return _data;
+    final data = <String, dynamic>{};
+    data['country'] = country;
+    data['sunrise'] = sunrise;
+    data['sunset'] = sunset;
+    return data;
   }
 }

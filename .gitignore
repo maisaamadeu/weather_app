@@ -42,4 +42,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-lib/app/data/repositories/weather_repository.dart
+lib/app/data/keys/api_keys.dart
+android/app/src/main/AndroidManifest.xml
+ios/Runner/AppDelegate.swift
+web/index.html
