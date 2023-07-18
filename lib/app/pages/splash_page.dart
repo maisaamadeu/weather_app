@@ -54,7 +54,7 @@ class SplashPage extends StatelessWidget {
               builder: (context) => prefs.containsKey('latitude') &&
                       prefs.containsKey('longitude')
                   ? const WeatherPage()
-                  : const StartPage(),
+                  : StartPage(),
             ),
           );
         },

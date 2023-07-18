@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
         brightness: Brightness.dark,
         useMaterial3: true,
       ),
-      home: const SplashPage(),
+      home: SplashPage(),
     );
   }
 }

@@ -73,14 +73,14 @@ class Coord {
   late final double lat;
 
   Coord.fromJson(Map<String, dynamic> json) {
-    lon = json['lon'];
-    lat = json['lat'];
+    lon = json['lon'] * 1.0;
+    lat = json['lat'] * 1.0;
   }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['lon'] = lon;
-    data['lat'] = lat;
+    data['lon'] = lon * 1.0;
+    data['lat'] = lat * 1.0;
     return data;
   }
 }
@@ -135,10 +135,10 @@ class Main {
   late final int grndLevel;
 
   Main.fromJson(Map<String, dynamic> json) {
-    temp = json['temp'];
-    feelsLike = json['feels_like'];
-    tempMin = json['temp_min'];
-    tempMax = json['temp_max'];
+    temp = json['temp'] * 1.0;
+    feelsLike = json['feels_like'] * 1.0;
+    tempMin = json['temp_min'] * 1.0;
+    tempMax = json['temp_max'] * 1.0;
     pressure = json['pressure'];
     humidity = json['humidity'];
     seaLevel = json['sea_level'];
@@ -147,10 +147,10 @@ class Main {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['temp'] = temp;
-    data['feels_like'] = feelsLike;
-    data['temp_min'] = tempMin;
-    data['temp_max'] = tempMax;
+    data['temp'] = temp * 1.0;
+    data['feels_like'] = feelsLike * 1.0;
+    data['temp_min'] = tempMin * 1.0;
+    data['temp_max'] = tempMax * 1.0;
     data['pressure'] = pressure;
     data['humidity'] = humidity;
     data['sea_level'] = seaLevel;
@@ -170,9 +170,9 @@ class Wind {
   late final double gust;
 
   Wind.fromJson(Map<String, dynamic> json) {
-    speed = json['speed'];
+    speed = json['speed'] * 1.0;
     deg = json['deg'];
-    gust = json['gust'];
+    gust = json['gust'] * 1.0;
   }
 
   Map<String, dynamic> toJson() {
